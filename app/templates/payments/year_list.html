@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block head_title %}
+Years - 
+{% endblock head_title %}
+
+{% block content %}
+<div class="container my-5">
+    <h1>Year</h1>
+    <hr>
+    <br>
+    <div class="mx-auto ">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="text-center bg-light p-3 rounded shadow">
+                <p>
+                    <a class="text-decoration-none fw-bold text-dark"
+                        href="#">Add a payment</a>
+                </p>
+                <p>
+                    <a class="text-decoration-none fw-bold text-dark"
+                        href="#">Add a customer</a>
+                </p>
+                <p>
+                    <a class="text-decoration-none fw-bold text-dark"
+                        href="#">Issue License</a>
+                </p>
+            </div>
+            </div>
+            <div class="col">
+                <div class="table-responsive shadow p-5 bg-light rounded-3">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Years</th>
+                                <th scope="col">Income</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for object in object_list %}
+                            <tr>
+                                <td>{{object.year|title}}</td>
+                                <td>XCD${{object.get_payment_year|floatformat:2|intcomma|default:"0.00"}}
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td class="text-center"
+                                    colspan="4">No data</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

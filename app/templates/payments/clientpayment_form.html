@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+Add a payment
+{% endblock head_title %}
+
+{% block content %}
+<div class="container my-5">
+    <h1>Add a payment</h1>
+    <hr>
+    <br>
+    <div class="mx-auto">
+        <form action=""
+            method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <div class="my-3">
+                <button class=""
+                    type="submit">Submit</button>
+            </div>
+        </form>
+
+    </div>
+
+
+</div>
+{% endblock content %}

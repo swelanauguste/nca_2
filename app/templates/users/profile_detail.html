@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block head_title %}
+{{object}}
+{% endblock head_title %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="pt-3">{{object}}</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- <p><strong>Name:</strong> {{object}}</p> -->
+                            <p><strong>Email:</strong> {{object.get_email}} <a href="{% url 'account_email' %}">change email</a></p>
+                            <p><strong>Phone:</strong> {{object.contact}}</p>
+                            <p><strong>Gender:</strong> {{object.gender}}</p>
+                            <p><strong>DOB:</strong> {{object.dob}}</p>
+                        </div>
+                        <!-- <div class="col-md-6">
+                                <p><strong>Company:</strong> {{user.company}}</p>
+                                <p><strong>Website:</strong> {{user.website}}</p>
+                                <p><strong>Twitter:</strong> {{user.twitter}}</p>
+                                <p><strong>Facebook:</strong> {{user.facebook}}</p>
+                                <p><strong>Linkedin:</strong> {{user.linkedin}}</p>
+                                <p><strong>Github:</strong> {{user.github}}</p>
+                            </div> -->
+                    </div>
+                </div>
+                <div class="card-footer p-3 px-5 text-end">
+                    <a title="edit profile information" class="text-decoration-none fs-5"
+                        href="{% url 'users:profile-update' request.user.profile.slug%}">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}

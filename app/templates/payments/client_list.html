@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block head_title %}
+Clients -
+{% endblock head_title %}
+
+{% block content %}
+<div class="container my-5">
+    <h1>Clients</h1>
+    <hr>
+    <div class="mx-auto">
+        <div class="col-lg-8 mx-auto">
+            <form action=""
+                method="get">
+                <input name="q"
+                    class="form-control my-5 rounded-pill shadow py-2"
+                    type="text"
+                    placeholder="Search for clients by ID, name, phone, NIC... ">
+            </form>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="text-center bg-light p-3 rounded shadow">
+                    <p>
+                        <a class="text-decoration-none fw-bold text-dark"
+                            href="#">Add a payment</a>
+                    </p>
+                    <p>
+                        <a class="text-decoration-none fw-bold text-dark"
+                            href="#">Add a customer</a>
+                    </p>
+                    <p>
+                        <a class="text-decoration-none fw-bold text-dark"
+                            href="#">Issue License</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="table-responsive shadow p-5 bg-light rounded-3">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Client ID</th>
+                                <th scope="col">Client name</th>
+                                <th scope="col">Contact</th>
+                                <th scope="col">is active</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for object in object_list %}
+                            <tr>
+                                <td>
+                                    <a href="{{object.get_absolute_url}}">
+                                        {{object.client_id|upper}}
+                                    </a>
+                                </td>
+                                <td>{{object.client_name|title}}</td>
+                                <td>{{object.phone|default:" - "}}
+                                <td>{{object.is_active|yesno:"yes,no,maybe"|title}}
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td class="text-center"
+                                    colspan="4">No data</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block head_title %}
+{{object}} -
+{% endblock head_title %}
+
+{% block content %}
+<div class="container my-5">
+    <h1>{{object}}</h1>
+    <hr>
+    <br>
+    <div class="mx-auto ">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="text-center bg-light p-3 rounded shadow">
+                    <p>
+                        <a class="text-decoration-none fw-bold text-dark"
+                            href="#">Add a payment</a>
+                    </p>
+                    <p>
+                        <a class="text-decoration-none fw-bold text-dark"
+                            href="#">Add a customer</a>
+                    </p>
+                    <p>
+                        <a class="text-decoration-none fw-bold text-dark"
+                            href="#">Issue License</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card col-lg-6 shadow">
+                    <div class="card-header shadow px-5">
+                        <h2 class="fs-3 fw-bold pt-3">
+                            {{object}}
+                        </h2>
+                    </div>
+                    <div class="card-body px-5">
+                        <p>
+                            ID: {{object.client_id}}
+                        </p>
+                        <p>
+                            name: {{object.client_name}}
+                        </p>
+                        <p>
+                            phone: {{object.phone|default:"N/A"}}
+                        </p>
+                        <p>
+                            gender: {{object.gender|default:"N/A"}}
+                        </p>
+                        <p>
+                            DOB: {{object.dob|default:"N/A"}}
+                        </p>
+                        <p>
+                            NIC: {{object.nic|default:"N/A"}}
+                        </p>
+                    </div>
+                    <div class="card-footer text-end py-3">
+                        <a class="btn btn-sm btn-outline-warning px-5" href="{{object.get_absolute_update_url}}">edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

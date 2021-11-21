@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block head_title %}
+Licenses - 
+{% endblock head_title %}
+
+{% block content %}
+<div class="container my-5">
+    <h1>Licenses</h1>
+    <hr>
+    <br>
+    <div class="mx-auto ">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="text-center bg-light p-3 rounded shadow">
+                <p>
+                    <a class="text-decoration-none fw-bold text-dark"
+                        href="#">Add a payment</a>
+                </p>
+                <p>
+                    <a class="text-decoration-none fw-bold text-dark"
+                        href="#">Add a customer</a>
+                </p>
+                <p>
+                    <a class="text-decoration-none fw-bold text-dark"
+                        href="#">Issue License</a>
+                </p>
+            </div>
+            </div>
+            <div class="col">
+                <div class="table-responsive shadow p-5 bg-light rounded-3">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Location</th>
+                                <th scope="col">License</th>
+                                <th scope="col">Annual Fee</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for object in object_list %}
+                            <tr>
+                                <td>{{object.location|title}}</td>
+                                <td>{{object.license|title}}</td>
+                                <td>XCD${{object.annual_fee|floatformat:2|intcomma|default:"0.00"}}
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td class="text-center"
+                                    colspan="4">No data</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+Dashboard
+{% endblock head_title %}
+
+{% block content %}
+<div class="container my-5">
+    <h1>Payments</h1>
+    <hr>
+    <br>
+    <div class="mx-auto ">
+
+
+        {% for object in object_list %}
+        <ul>
+            <li>
+                {{object}}
+            </li>
+        </ul>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+{% endblock content %}
