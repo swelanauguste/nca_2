@@ -3,12 +3,12 @@
 {% load humanize %}
 
 {% block head_title %}
-Licenses -
+Payments -
 {% endblock head_title %}
 
 {% block content %}
 <div class="container my-5">
-    <div class="mx-auto ">
+    <div class="mx-auto">
         <div class="col-lg-8 mx-auto">
             <form action="{% url 'client-search-list' %}"
                 method="get">
@@ -20,20 +20,30 @@ Licenses -
         </div>
         <hr>
         {% include 'pagination.html' %}
+
         <div class="table-responsive shadow p-5 bg-light rounded-3">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Licenses</th>
-                        <th scope="col">Annual Fee</th>
+
+                        <th scope="col">Year</th>
+                        <th scope="col">License</th>
+                        <th scope="col">Payments</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for object in object_list %}
                     <tr>
-                        <td>{{object.license|title}}</td>
-                        <td>XCD${{object.annual_fee|floatformat:2|intcomma|default:"0.00"}}
+                        <td>
+                            {{object.issued_license.year|title}}
                         </td>
+                        <td>
+                            <a href="{{object.get_absolute_url}}">
+                                {{object.issued_license.license|upper}}
+                            </a>
+                        </td>
+
+                        <td>${{object.amount|default:"0.00"}}
                     </tr>
                     {% empty %}
                     <tr>

@@ -14,45 +14,26 @@
     <hr>
     <br>
     <div class="mx-auto ">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="text-center bg-light p-3 rounded shadow">
-                    <p>
-                        <a class="text-decoration-none fw-bold text-dark"
-                            href="#">Add a payment</a>
-                    </p>
-                    <p>
-                        <a class="text-decoration-none fw-bold text-dark"
-                            href="#">Add a customer</a>
-                    </p>
-                    <p>
-                        <a class="text-decoration-none fw-bold text-dark"
-                            href="#">Issue License</a>
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card col-lg-6 shadow">
-                    <div class="card-header shadow px-5">
-                        <h2 class="fs-3 fw-bold pt-3">
-                            {{object}}
-                        </h2>
-                    </div>
-                    <div class="card-body px-5">
-                        <form class="py-4"
-                            action=""
-                            method="post">
-                            {% csrf_token %}
-                            {{form|crispy}}
-                    </div>
-                    <div class="card-footer text-end py-3">
-                        <button class="btn btn-sm btn-outline-dark px-5"
-                            type="submit">Submit</button>
-                    </div>
 
-                    </form>
-                </div>
+        <div class="card col-lg-6 shadow">
+            <div class="card-header shadow px-5">
+                <h2 class="fs-3 fw-bold pt-3">
+                    {{object}}
+                </h2>
             </div>
+            <div class="card-body px-5">
+                <form class="py-4"
+                    action=""
+                    method="post">
+                    {% csrf_token %}
+                    {{form|crispy}}
+            </div>
+            <div class="card-footer text-end py-3">
+                <button class="btn btn-sm btn-outline-dark px-5"
+                    type="submit">Submit</button>
+            </div>
+
+            </form>
         </div>
     </div>
 </div>

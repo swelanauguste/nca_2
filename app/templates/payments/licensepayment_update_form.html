@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+{{object}} -
+{% endblock head_title %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="card col-lg-6 shadow mx-auto ">
+        <div class="card-header shadow px-5">
+            <h2 class="fs-3 fw-bold pt-3">
+                {{object}}
+            </h2>
+        </div>
+        <div class="card-body px-5">
+            <form class="py-4"
+                action=""
+                method="post">
+                {% csrf_token %}
+                {{form|crispy}}
+        </div>
+        <div class="card-footer text-end py-3">
+            <button class="btn btn-sm btn-outline-dark px-5"
+                type="submit">Submit</button>
+        </div>
+
+        </form>
+    </div>
+</div>
+{% endblock content %}

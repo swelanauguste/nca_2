@@ -11,20 +11,15 @@
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <!-- <li><a href="/"
-                    class="nav-link px-2 link-dark">Home</a></li> -->
-            <li><a href="{% url 'client-list' %}"
-                    class="nav-link px-2 link-dark">Clients</a></li>
             <li><a href="{% url 'license-payment-list' %}"
                     class="nav-link px-2 link-dark">Payments</a></li>
+            <li><a href="{% url 'client-list' %}"
+                    class="nav-link px-2 link-dark">Clients</a></li>
+
             <li><a href="{% url 'license-list' %}"
                     class="nav-link px-2 link-dark">Licenses</a></li>
-            <!-- <li><a href="#"
-                    class="nav-link px-2 link-dark">Pricing</a></li>
-            <li><a href="#"
-                    class="nav-link px-2 link-dark">FAQs</a></li>
-            <li><a href="#"
-                    class="nav-link px-2 link-dark">About</a></li> -->
+            <li><a href="{% url 'license-list' %}"
+                    class="nav-link px-2 link-dark">Issued Licenses</a></li>
         </ul>
 
         <div class="col-md-3 text-end">
@@ -41,7 +36,7 @@
                 <i title="logout"
                     class="bi bi-door-open-fill fs-4"></i>
             </a>
-         
+
             <!-- <a href="{% url 'account_login' %}"
                 type="button"
                 class="btn btn-outline-success me-2">login</a>

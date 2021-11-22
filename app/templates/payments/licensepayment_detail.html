@@ -8,10 +8,7 @@
 
 {% block content %}
 <div class="container my-5">
-    <h1>{{object}}</h1>
-    <hr>
-    <br>
-    <div class="card col-lg-6 mx-auto shadow">
+    <div class="card col-lg-8 mx-auto shadow">
         <div class="card-header shadow px-5">
             <h2 class="fs-3 fw-bold pt-3">
                 {{object}}
@@ -19,22 +16,10 @@
         </div>
         <div class="card-body px-5">
             <p>
-                ID: {{object.client_id}}
+                License: {{object.issued_license}}
             </p>
             <p>
-                name: {{object.client_name}}
-            </p>
-            <p>
-                phone: {{object.phone|default:"N/A"}}
-            </p>
-            <p>
-                gender: {{object.gender|default:"N/A"}}
-            </p>
-            <p>
-                DOB: {{object.dob|default:"N/A"}}
-            </p>
-            <p>
-                NIC: {{object.nic|default:"N/A"}}
+                Payment: XCD${{object.amount}}
             </p>
         </div>
         <div class="card-footer text-end py-3">
