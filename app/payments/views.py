@@ -20,6 +20,15 @@ class IssuedLicenseDetailView(LoginRequiredMixin, DetailView):
     model = IssuedLicense
 
 
+class IssuedLicenseCreateView(LoginRequiredMixin, CreateView):
+    model = IssuedLicense
+    fields = "__all__"
+
+
+class IssuedLicenseDetailView(LoginRequiredMixin, DetailView):
+    model = IssuedLicense
+
+
 class ClientSearchListView(LoginRequiredMixin, ListView):
     model = Client
     paginate_by = 25
@@ -42,7 +51,7 @@ class ClientSearchListView(LoginRequiredMixin, ListView):
 
 class ClientListView(LoginRequiredMixin, ListView):
     model = Client
-    paginate_by = 10
+    paginate_by = 25
 
 
 class ClientDetailView(LoginRequiredMixin, DetailView):

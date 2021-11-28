@@ -163,14 +163,14 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login/"
 # ACCOUNT_ADAPTER = "accounts.account_adapter.NoNewUsersAccountAdapter"
 
-# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "mail.govt.lc"
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "mail.govt.lc"
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 
 DEFAULT_FROM_EMAIL = "noreply@kingship.com"
 ADMINS = [

@@ -18,6 +18,9 @@ Licenses -
                     placeholder="Search for clients by ID, name, phone, NIC... ">
             </form>
         </div>
+        <div class="my-3 text-end">
+            <a class="text-dark" href="{% url 'issued-license-create' %}">Issue a new license</a>
+        </div>
         <hr>
         {% include 'pagination.html' %}
         <div class="table-responsive shadow p-5 bg-light rounded-3">

@@ -47,6 +47,16 @@ urlpatterns = [
         name="issued-license-list",
     ),
     path(
+        "issued-license-new",
+        views.IssuedLicenseCreateView.as_view(),
+        name="issued-license-create",
+    ),
+    path(
+        "issued-license-detail-<int:pk>",
+        views.IssuedLicenseDetailView.as_view(),
+        name="issued-license-detail",
+    ),
+    path(
         "issued-license-detail-<int:pk>",
         views.IssuedLicenseDetailView.as_view(),
         name="issued-license-detail",

@@ -77,6 +77,9 @@ class IssuedLicense(models.Model):
     )
     is_active = models.BooleanField(default=True)
     
+    class Meta:
+        ordering = ("year",)
+    
     def get_absolute_url(self):
         return reverse("issued-license-detail", kwargs={"pk": self.pk})
 
