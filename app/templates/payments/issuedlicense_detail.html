@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block head_title %}
+{{object}} -
+{% endblock head_title %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="card col-lg-8 mx-auto shadow">
+        <div class="card-header shadow px-5">
+            <h2 class="fs-3 fw-bold pt-3">
+                {{object}}
+            </h2>
+        </div>
+        <div class="card-body px-5">
+            <p>
+                Client: {{object.client}}
+            </p>
+            <p>
+                License: {{object.license.license}}
+            </p>
+            <p>
+                Location: {{object.location}}
+            </p>
+            <p>
+                Year: {{object.year}}
+            </p>
+        </div>
+        <div class="card-footer text-end py-3">
+            <a class="btn btn-sm btn-outline-warning px-5"
+                href="{{object.get_absolute_update_url}}">edit</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -36,4 +36,19 @@ urlpatterns = [
         views.LicensePaymentUpdateView.as_view(),
         name="license-payment-update",
     ),
+    path(
+        "license-payment-new",
+        views.LicensePaymentCreateView.as_view(),
+        name="license-payment-create",
+    ),
+    path(
+        "issued-licenses",
+        views.IssuedLicenseListView.as_view(),
+        name="issued-license-list",
+    ),
+    path(
+        "issued-license-detail-<int:pk>",
+        views.IssuedLicenseDetailView.as_view(),
+        name="issued-license-detail",
+    ),
 ]

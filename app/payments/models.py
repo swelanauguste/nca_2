@@ -63,7 +63,7 @@ class Client(models.Model):
         return reverse("client-update", kwargs={"slug": self.slug})
 
     def __str__(self):
-        return f"{self.client_name}({self.client_id})"
+        return f"{self.client_name}({self.client_id.upper()})"
 
 
 class IssuedLicense(models.Model):
@@ -76,6 +76,9 @@ class IssuedLicense(models.Model):
         "Year", related_name="issued_license_years", on_delete=models.CASCADE
     )
     is_active = models.BooleanField(default=True)
+    
+    def get_absolute_url(self):
+        return reverse("issued-license-detail", kwargs={"pk": self.pk})
 
     @admin.display(description="get_total_fees_by_year")
     def get_total_fees_by_year(self):

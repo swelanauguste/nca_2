@@ -3,12 +3,21 @@ from django.db.models import Q, Sum, fields
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
-from .forms import ClientUpdateForm
+from .forms import ClientUpdateForm, LicensePaymentCreateForm
 from .models import Client, License, IssuedLicense, LicensePayment, Location, Year
 
 
 class YearListView(LoginRequiredMixin, ListView):
     model = Year
+
+
+class IssuedLicenseListView(LoginRequiredMixin, ListView):
+    model = IssuedLicense
+    paginate_by = 10
+
+
+class IssuedLicenseDetailView(LoginRequiredMixin, DetailView):
+    model = IssuedLicense
 
 
 class ClientSearchListView(LoginRequiredMixin, ListView):
@@ -38,6 +47,13 @@ class ClientListView(LoginRequiredMixin, ListView):
 
 class ClientDetailView(LoginRequiredMixin, DetailView):
     model = Client
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["client_issued_license_list"] = IssuedLicense.objects.filter(
+            client=self.object
+        )
+        return context
 
 
 class ClientUpdateView(LoginRequiredMixin, UpdateView):
@@ -89,4 +105,8 @@ class LicensePaymentUpdateView(LoginRequiredMixin, UpdateView):
     model = LicensePayment
     fields = "__all__"
     template_name_suffix = "_update_form"
-    
+
+
+class LicensePaymentCreateView(LoginRequiredMixin, CreateView):
+    model = LicensePayment
+    form_class = LicensePaymentCreateForm
